@@ -46,7 +46,7 @@ abuse_words = [
     # English
     "fuck", "shit", "bitch", "asshole", "bastard", "dick", "piss", "cunt", "fucker", "motherfucker",
     # Hindi
-    "chutiya", "madarchod", "bhenchod", "gandu", "harami", "kutta", "sala", "randi", "bhosdi", "lodu",
+    "chutiya","behenchod","lode","lowde", "madarchod", "bhenchod", "gandu", "harami", "kutta", "sala", "randi", "bhosdi", "lodu",
     "maa ki chut", "bhosda", "chut", "gaand", "lavda", "bhadwa", "jhatu", "tatti", "suar", "kutiya"
 ]
 
@@ -178,27 +178,27 @@ async def handler(event):
         if user_message == '/start':
             ai_active_chats[chat_id] = True
             await event.delete()
-            await client.send_message(chat_id, "✅ AI replies is chat mein shuru! 😎", reply_to=event.id)
+            await client.send_message(chat_id, " 😎", reply_to=event.id)
             print(f"StartAI executed for chat {chat_id}")
             return
         if user_message == '/stop':
             ai_active_chats[chat_id] = False
             await event.delete()
-            await client.send_message(chat_id, "✅ AI replies is chat mein band! 🛑", reply_to=event.id)
+            await client.send_message(chat_id, "🛑", reply_to=event.id)
             print(f"StopAI executed for chat {chat_id}")
             return
         if user_message == '/online':
             force_online = True
             ai_active_chats[chat_id] = True
             await event.delete()
-            await client.send_message(chat_id, "✅ Bot fully online! Sab chats mein reply karega until /offline.", reply_to=event.id)
+            await client.send_message(chat_id, "✅ ", reply_to=event.id)
             print("Online command executed")
             return
         if user_message == '/offline':
             force_online = False
             ai_active_chats[chat_id] = False
             await event.delete()
-            await client.send_message(chat_id, "✅ Bot offline! AI replies band. /start ya /online se wapas chalu karo.", reply_to=event.id)
+            await client.send_message(chat_id, "✅.", reply_to=event.id)
             print("Offline command executed")
             return
         if user_message == '/del':
